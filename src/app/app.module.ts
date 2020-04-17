@@ -17,6 +17,7 @@ import { EventListResolver } from './events/shared/events-list-resolver.service'
 import { UserModule } from './user/user.module';
 import { IEvent } from './events/shared/event.model';
 import { AuthService } from './user/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // import {
 //   EventsListComponent,
@@ -40,6 +41,8 @@ import { AuthService } from './user/auth.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
