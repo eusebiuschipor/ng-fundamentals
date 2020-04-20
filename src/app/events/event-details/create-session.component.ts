@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISession } from '../shared/event.model';
+// import { EventEmitter } from 'protractor';
 
 @Component({
+  selector: 'create-session',
   templateUrl: './create-session.component.html'
 })
 export class CreateSessionComponent implements OnInit {
@@ -12,6 +14,7 @@ export class CreateSessionComponent implements OnInit {
   level: FormControl;
   abstract: FormControl;
   newSessionForm: FormGroup;
+  @Output() saveNewSession = new EventEmitter();
 
   ngOnInit() {
     this.name = new FormControl('', Validators.required);
@@ -54,6 +57,6 @@ export class CreateSessionComponent implements OnInit {
       voters: []
     };
 
-    console.log(session);
+    //this.saveNewSession.emit(session);
   }
 }

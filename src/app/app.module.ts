@@ -19,16 +19,7 @@ import { IEvent } from './events/shared/event.model';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
-
-// import {
-//   EventsListComponent,
-//   EventThumbnailComponent,
-//   EventService,
-//   // EventDetailsComponent,
-//   CreateEventComponent,
-//   EventRouteActivator,
-//   EventListResolver
-// } from './events/index'
+import { SessionListComponent } from './events/event-details/session-list.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +30,8 @@ import { CreateSessionComponent } from './events/event-details/create-session.co
     NavBarComponent,
     CreateEventComponent,
     Error404Component,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
