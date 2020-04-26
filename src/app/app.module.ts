@@ -23,6 +23,8 @@ import { SessionListComponent } from './events/event-details/session-list.compon
 import { CollapsibleWellComponent } from './common/collapsible-well.component'
 import { DurationPipe } from './events/shared/duration.pipe';
 import { SimpleModalComponent } from './common/simpleModal.component';
+import { UpvoteComponent } from './events/event-details/upvote.component';
+import { VoterService } from './events/event-details/voter.service';
 // import { ModalTriggerDirective } from './common/modalTrigger.directive';
 
 export declare let toastr:Toastr;
@@ -41,8 +43,8 @@ let jQuery = window['$'];
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
-    SimpleModalComponent
-    // ModalTriggerDirective
+    SimpleModalComponent,
+    UpvoteComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ let jQuery = window['$'];
     EventListResolver,
     EventRouteActivator,
     AuthService,
+    VoterService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
