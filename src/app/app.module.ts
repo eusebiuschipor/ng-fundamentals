@@ -6,7 +6,7 @@ import { EventsListComponent } from './events/events-list.component';
 import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { EventService } from './events/shared/event.service';
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { appRoutes } from '../routes';
 import { RouterModule } from '@angular/router';
@@ -21,6 +21,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well.component'
+import { DurationPipe } from './events/shared/duration.pipe';
+import { SimpleModalComponent } from './common/simpleModal.component';
+// import { ModalTriggerDirective } from './common/modalTrigger.directive';
+
+export declare let toastr:Toastr;
+let jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -33,7 +39,10 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component'
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe,
+    SimpleModalComponent
+    // ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,8 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component'
   ],
   providers: [
     EventService,
-    ToastrService,
+    { provide: TOASTR_TOKEN, useValue: toastr },
+    EventRouteActivator,
     EventListResolver,
     EventRouteActivator,
     AuthService,
